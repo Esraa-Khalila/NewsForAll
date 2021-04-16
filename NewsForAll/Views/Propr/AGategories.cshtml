@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Propr>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 m-2 font-weight-bold text-center"> Categories List</div>
+
+        <div class="col-6">
+            <a asp-action="Create" asp-controller="Propr" class="btn btn-warning m-2">Create new Category</a>
+        </div>
+        <br>
+        @if (Model.Count() > 0)
+        {
+            <table class="table table-bordered  w-100">
+                <thead>
+                    <tr>
+
+                        <th>Name</th>
+                        <th>Decription</th>
+                        <th>Operations</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var prop in Model)
+                    {
+                        <tr>
+                            <td width="30%">@prop.Name</td>
+                            <td width="30%">@prop.Decription</td>
+                            <td>
+                                <a asp-controller="Propr" asp-action="Details" asp-route-id="@prop.Id" class="btn btn-warning">Details</a>
+                                <a asp-controller="Propr" asp-action="Update" asp-route-id="@prop.Id" class="btn btn-warning">Edit</a>
+                                <a asp-controller="Propr" asp-action="Delete" asp-route-id="@prop.Id" class="btn btn-warning">Delete</a>
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <h4>No Gategory yet</h4>
+        }
+
+
+    </div>
+</div>

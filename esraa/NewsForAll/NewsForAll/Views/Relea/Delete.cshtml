@@ -1,0 +1,69 @@
+﻿@model Relea
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<form method="post" asp-action="Delete" asp-controller="Relea">
+    <div class="border  m-2 p-4">
+        <div class="form-group row">
+            <h3 class=" text-center border-bottom d-inline m-1">
+                Remove New
+            </h3>
+
+
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group ">
+                    <div class="col">
+                        <label asp-for="Title">
+
+                        </label>
+                        <input asp-for="Title" disabled class="form-control">
+                    </div>
+                    <div class="col">
+                        <label asp-for="Topic">
+                        </label>
+                        <textarea asp-for="Topic" disabled class="form-control"></textarea>
+                    </div>
+
+                    <div class="col">
+                        <label asp-for="Image">
+                        </label><input asp-for="Image" disabled class="form-control">
+                    </div>
+
+                    <div class="col">
+                        <label asp-for="date">
+                        </label>  <input asp-for="date" disabled class="form-control ">
+                    </div>
+
+                    <div class="col">
+                        <label asp-for="PropId">
+                        </label>  <input asp-for="PropId" disabled class="form-control ">
+                    </div>
+                    
+
+
+                </div>
+
+
+            </div>
+
+            <div class="col-4 ">
+                <div class="form-group row mt-4">
+
+                    <div class="col">
+                        <input type="submit" value="Delete" class="btn btn-warning" />
+                    </div>
+                    <div class="col">
+                        <a asp-action="ARelease" class="btn btn-outline-warning">Back</a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</form>

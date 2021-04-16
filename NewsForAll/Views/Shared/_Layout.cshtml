@@ -1,0 +1,137 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> signInManager
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ExtraNews</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+
+
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-2 " >
+            <div class="container">
+                <a class="navbar-brand text-white pr-1" asp-area="" asp-controller="Home" asp-action="Index">Extra <span class="text-warning">News</span></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-sm-between " >
+                    <ul class="navbar-nav flex-grow-1 " >
+                        <li  id="Menu"class="nav-item" >
+                            <a class="nav-link text-white " asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li id="Menu" class="nav-item" >
+                            <a class="nav-link  text-white" onclick="Cat()"  >Category</a>
+                        </li>
+
+
+                        <li  id="Menu" class="nav-item" >
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="TeamMem">Team</a>
+                        </li>
+                        <li id="Menu" class="nav-item" >
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="ContactUs">Contact</a>
+                        </li>
+                        <li id="Menu" class="nav-item" >
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+
+                    </ul>
+
+
+                    <ul class="navbar-nav  flex-grow-1 d-inline-flex justify-content-end">
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin1"))
+
+                        {
+                            <li>
+                                <form method="post" asp-action="Logout" asp-controller="Account">
+                                    <button class="btn btn-link btn-warning text-decoration-none" type="submit">
+                                        Logout @User.Identity.Name
+                                    </button>
+                                </form>
+                            </li>
+                            <li id="Menu" class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="RoleList">Roles</a>
+                            </li>
+                            <li id="Menu" class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Propr" asp-action="AGategories">Gategory</a>
+                            </li>
+                            <li id="Menu" class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Relea" asp-action="ARelease">News</a>
+                            </li>
+                            <li id="Menu" class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-controller="TeamMem" asp-action="ATeamMem">Team</a>
+                            </li>
+                            <li id="Menu" class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="AllContact">Contact</a>
+                            </li>
+                        }
+                        else if (signInManager.IsSignedIn(User) && !User.IsInRole("Admin1"))
+                        {
+                            <li>
+                                <form method="post" asp-action="Logout" asp-controller="Account">
+                                    <button class="btn btn-link btn-warning text-decoration-none" type="submit">
+                                        Logout @User.Identity.Name
+                                    </button>
+                                </form>
+                            </li>
+
+                        }
+                        else
+                        {
+                            <li id="Rad" class="nav-item bg-warning  mr-1 ">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+                            </li>
+                            <li id="Rad" class="nav-item bg-warning ">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+     
+    </header>
+    <div class="container">
+        <main role="main" class=" p-5">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class=" border-top footer text-muted bg-dark text-center ">
+        <div class="container">
+            <h3>Extra <span class="text-warning">News</span></h3>
+
+            &copy; 2021 - Extra News 
+
+            <div class="social m-2">
+                <a href="https://www.facebook.com/">
+                    <img src="~/img/icon/14.png" width="20"/>
+                </a>
+                <a href="https://www.twitter.com/">
+                    <img src="~/img/icon/15.png" width="20"/>
+                </a>
+                <a href="https://www.youtube.com/">
+                    <img src="~/img/icon/16.png"width="20" />
+                </a>
+                <a href="https://www.instgram.com/">
+                    <img src="~/img/icon/4.png"width="20" />
+                </a>
+
+            </div>
+         
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

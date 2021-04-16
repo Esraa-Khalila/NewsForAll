@@ -1,0 +1,52 @@
+﻿@model Propr
+
+<form method="post" asp-action="Create" asp-controller="Propr">
+    <div class="border  m-2 p-4" >
+        <div class="form-group row">
+            <h3 class=" text-center border-bottom d-inline m-1">
+                Add New Category
+            </h3>
+
+
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <div class="col-6">
+                        <label asp-for="Name">
+                        </label>
+                    </div>
+                    <div class="col-6">
+                        <label asp-for="Decription">
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-6 w-75">
+                        <input asp-for="Name" class="form-control">
+                    </div>
+                    <div class="col-6 w-75">
+                        <input asp-for="Decription" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group row ">
+
+                    <div class=" col-4 text-center row">
+                        <div class="col">
+                            <input type="submit" value="Create" class="btn btn-warning" />
+                        </div>
+
+                    </div>
+                    <div class="col">
+                        <a asp-action="AGategories" class="btn btn-outline-warning">Back</a>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</form>

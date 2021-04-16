@@ -1,0 +1,65 @@
+﻿@model TeamMem
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<form method="post" asp-action="Delete" asp-controller="TeamMem">
+       <div class="border  m-2 p-4">
+        <div class="form-group row">
+            <h3 class=" text-center border-bottom d-inline m-1">
+                Remove Member
+            </h3>
+
+
+        </div>
+
+       
+            <div class="col-12">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Name">
+                        </label>
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="TitleJob">
+                        </label>
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="Image">
+                        </label>
+                    </div>
+                    
+                </div>
+                <div class="form-group row">
+                    <div class="col-4 w-75">
+                        <input asp-for="Name" class="form-control">
+                    </div>
+                    <div class="col-4 w-75">
+                        <input asp-for="TitleJob" class="form-control">
+                    </div>
+                    <div class="col-4 w-75">
+                        <input asp-for="Image" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group row ">
+
+                    <div class=" col-4 text-center row">
+                        <div class="col">
+                            <input type="submit" value="Delete" class="btn btn-warning" />
+                        </div>
+
+                    </div>
+                    <div class="col">
+                        <a asp-action="ATeamMem" class="btn btn-outline-warning">Back</a>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+  
+</form>

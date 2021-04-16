@@ -1,0 +1,39 @@
+﻿@model IEnumerable<TeamMem> 
+
+
+
+<section>
+    <div class="text-center p-3">
+        <h5 class="display-4 border-bottom d-inline border-dark text-warning ">Team Member</h5>
+    </div>
+
+
+    <div class="row">
+
+        @foreach (var Team in Model)
+        {
+
+
+            <div class="col-lg-6 col-md-6 col-sm-10 mb-3 pb-3  text-center">
+                <div class="card h-100 w-75 ">
+                    <div>
+                        <div class="card-header">
+                         <img src="~/TeamImg/@Team.Image" class="rounded-circle" width="150" height="150" asp-append-version="true" />
+                        </div>
+                    </div>
+
+                    <div class="card-body ">
+                        <h5 class="card-title"> Name  @Team.Name</h5>
+                        <p class="card-text"> Title Job : @Team.TitleJob </p>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        }
+
+    </div>
+    <br />
+    </section>

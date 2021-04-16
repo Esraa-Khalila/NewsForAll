@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Propr>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<section id="hero">
+
+
+    <div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
+    
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+      
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="~/img/1.jpg" alt="First Slide" class="col-12">
+                
+            </div>
+            <div class="carousel-item">
+                <img src="~/img/2.jpeg" alt="Second Slide"  class="col-12">
+                
+            </div>
+            <div class="carousel-item">
+                <img src="~/img/3.jpg" alt="Third Slide" class="col-12">
+                
+                  
+            </div>
+        </div>
+    
+        <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+</section>
+
+        <div id="Cat">
+            <div class="text-center p-4">
+                <h5 class="display-4 border-bottom d-inline border-dark text-warning">Categories</h5>
+            </div>
+
+
+
+            <div>
+                <div class="row">
+
+                    @foreach (var prop in Model)
+                    {
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="card ">
+                                <div class="card-header bg-warning ">
+                                    <div class="card-title text-center font-weight-bold "> <a class="text-dark text-decoration-none" href="/Home/Release/@prop.Id">@prop.Name</a></div>
+                                </div>
+
+                                <div class="card-body">@prop.Decription</div>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+            </div>
+        </div>
+<br />
+        
+<script>
+   const ele = document.getElementById("Cat")
+    function Cat() {
+        ele.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+        

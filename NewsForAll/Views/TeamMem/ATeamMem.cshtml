@@ -1,0 +1,56 @@
+﻿@model IEnumerable<TeamMem>
+@{
+    ViewData["Title"] = "ATeamMem";
+}
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 m-2 font-weight-bold text-center"> Team Member List</div>
+
+        <div class="col-6">
+            <a asp-action="Create" asp-controller="TeamMem" class="btn btn-warning m-2">Create new Team Member</a>
+        </div>
+        <br>
+        @if (Model.Count() > 0)
+        {
+            <table class="table table-bordered  w-100">
+                <thead>
+                    <tr>
+
+                        <th>Name</th>
+                        <th>Tiltle Job</th>
+                        <th>Image</th>
+                        <th>Operations</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var Team in Model)
+                    {
+                    <tr>
+                        <td width="20%">@Team.Name</td>
+                        <td width="20%">@Team.TitleJob</td>
+                        <td width="20"><img src="~/TeamImg/@Team.Image" class="rounded-circle" width="40" height="40" asp-append-version="true" /></td>
+                        <td>
+
+                            <a asp-controller="TeamMem" asp-action="Update" asp-route-id="@Team.Id" class="btn btn-warning">Edit</a>
+                            <a asp-controller="TeamMem" asp-action="Delete" asp-route-id="@Team.Id" class="btn btn-warning">Delete</a>
+                        </td>
+
+                    </tr>
+                    }
+
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <h4>No Gategory yet</h4>
+        }
+
+
+    </div>
+
+

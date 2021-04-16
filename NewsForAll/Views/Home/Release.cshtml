@@ -1,0 +1,41 @@
+﻿@model List<Relea>
+
+
+@{
+    ViewData["Title"] = "Release";
+}
+
+<center>
+    <h3 class="text-center border-bottom d-inline">News</h3>
+</center>
+<div class="container">
+    <div class="row">
+
+        @foreach (var rel in Model)
+        {
+
+            <center>
+                <div class="col-lg-11 col-md-10 col-sm-10">
+                    <div class="card h-100 w-50">
+                        <div class="card-header">
+                            <img src="~/Relea/@rel.Image" class="rounded-circle" width="150" height="150" asp-append-version="true" />
+                        </div>
+
+                        <div class="card-body ">
+                            <h5 class="card-title">@rel.Title</h5>
+                            <p class="card-text">@rel.Topic </p>
+                        </div>
+
+                        <div class="card-footer">
+                            <h6>@rel.date</h6>
+                           
+                        </div>
+
+                    </div>
+                </div>
+            </center>
+
+        }
+        <br />
+        </div>
+    </div>

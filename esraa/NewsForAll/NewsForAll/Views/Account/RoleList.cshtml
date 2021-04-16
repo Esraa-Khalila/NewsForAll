@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
+@{
+    ViewData["Title"] = "RoleList";
+}
+
+
+
+
+        <div class="col-12 m-2 font-weight-bold text-center">Role List</div>
+        
+
+        @if (Model.Any())
+           {
+
+    <div class="col-8">
+        <a asp-action="CreateRole" asp-controller="Account" class="btn btn-warning m-2">Create new Role</a>
+    </div>
+
+            @foreach (var Role in Model)
+            {
+
+                <center>
+                    <div class="col-lg-12 col-md-10 col-sm-10">
+                        <div class="card  w-50">
+                            <div class="card-header">
+                                Role Name : @Role.Id
+                            </div>
+
+                            <div class="card-body ">
+                                <h5 class="card-title">@Role.Name</h5>
+
+                            </div>
+
+                            <div class="card-footer">
+
+                                <a asp-controller="Account" asp-action="EditRole" asp-route-id="@Role.Id" class="btn btn-warning">Edit</a>
+                                <a asp-action="Index" class="btn btn-outline-warning">Back</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </center>
+
+            }
+        }
+
+        else
+        {
+            <center>
+                <div class="col-lg-11 col-md-10 col-sm-10">
+                    <div class="card h-100 w-50">
+                        <div class="card-header">
+                            No Role yet...
+                        </div>
+
+                        <div class="card-body ">
+                            <div class="col-6">
+                                <a asp-action="CreateRole" asp-controller="Account" class="btn btn-warning m-2">Create new Role</a>
+                            </div>
+
+                        </div>
+
+                        <div class="card-footer">
+                            No Role..
+                        </div>
+
+                    </div>
+                </div>
+            </center>
+        }
+
+
+

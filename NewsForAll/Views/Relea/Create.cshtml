@@ -1,0 +1,93 @@
+﻿@model ReleaCreateViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<form method="post" asp-action="Create" enctype="multipart/form-data">
+    <div class="border  m-2 p-4">
+        <div class="form-group row">
+            <h3 class=" text-center border-bottom d-inline m-1">
+                Add New Category
+            </h3>
+
+
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group ">
+                    <div class="col">
+                        <label asp-for="Title">
+
+                        </label>
+                        <input asp-for="Title" class="form-control">
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="col">
+                            <label asp-for="Topic">
+                            </label>
+                            <textarea asp-for="Topic" class="form-control"></textarea>
+                            <span asp-validation-for="Topic" class="text-danger"></span>
+
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+
+                            <div class="custom-file">
+                                <input asp-for="Image"  type="file" class="custom-file-input" id="customFile">
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div>
+
+
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+
+                                <label asp-for="date">
+                                </label>  <input asp-for="date" class="form-control ">
+                                <span asp-validation-for="date" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col">
+
+                            <label asp-for="PropId">
+                            </label>  <select asp-for="PropId" class="form-control" asp-items="ViewBag.ProprId"></select>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <div class="col-lg-3 col-sm-2 ">
+                    <div class="form-group row mt-4">
+
+                        <div class="col">
+                            <input type="submit" value="Create" class="btn btn-warning" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="ARelease" class="btn btn-outline-warning">Back</a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        </div>
+
+        @section Scripts {
+            <script>
+                // Add the following code if you want the name of the file appear on select
+                $(".custom-file-input").on("change", function () {
+                    var fileName = $(this).val().split("\\").pop();
+                    $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+                });
+            </script>
+
+        }
+</form>
